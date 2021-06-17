@@ -14,7 +14,7 @@ class OrderCalendarPage(BaseAction):
    #选择场次
     select_session = By.XPATH,"//android.view.ViewGroup/android.view.ViewGroup[2]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup"
    #设置出行人数+1
-    travel_number = By.XPATH,"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.view.ViewGroup/android.widget.ImageView[2]"
+    travel_number = By.XPATH,"//android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.view.ViewGroup/android.widget.ImageView[2]"
    #点击确定
     determine_button = By.XPATH,"//*[@text='确定']"
 

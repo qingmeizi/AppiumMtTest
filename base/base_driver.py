@@ -11,7 +11,7 @@ def init_driver():
         caps["appActivity"] = "com.maitao.mtqzy.main.SplashActivity"
         caps["automationName"] = "UiAutomator2"
         caps["newCommandTimeout"] = 5000
-
+        #caps["noReset"] = True
         caps["androidPackage"] = "com.android.chrome"
 
         driver = webdriver.Remote("http://localhost:4723/wd/hub", caps)

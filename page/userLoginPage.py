@@ -18,7 +18,8 @@ class UserLoginPage(BaseAction):
     #下次再说
     TheNext_button = By.ID,"com.maitao.mtqzy:id/nextTxt"
 
-
+    mobile = "12312340008"
+    password = "871117"
 
     def __init__(self,driver):
         self.driver = driver
@@ -26,12 +27,17 @@ class UserLoginPage(BaseAction):
     def click_mobile_login(self):
         self.click(self.mobile_login)
     #输入手机号
-    def mobile_input(self,mobile):
+    #def mobile_input(self,mobile):
+      #  self.input(self.mobie_box,mobile)
 
-        self.input(self.mobie_box,mobile)
+    def mobile_input(self):
+        self.input(self.mobie_box, self.mobile)
     #输入密码
-    def password_input(self,password):
-        self.input(self.password_box,password)
+   # def password_input(self,password):
+    #    self.input(self.password_box,password)
+
+    def password_input(self,):
+        self.input(self.password_box, self.password)
     #点击勾选
     def click_check_box(self):
         self.click(self.check_box)

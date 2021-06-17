@@ -5,7 +5,9 @@ from base.BaseAction import BaseAction
 class MainHmoePage(BaseAction):
 
     #我的
-    my_tab = By.XPATH,"//*[@text='我的']"
+    my_tab = By.XPATH, "//*[@text='我的']"
+   # my_tab = By.XPATH, "text，我的"
+
     #搜索框
     search_box = By.XPATH,"/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.view.ViewGroup/android.widget.FrameLayout[1]/android.view.ViewGroup/android.view.ViewGroup/android.view.ViewGroup[1]/android.view.ViewGroup/android.view.ViewGroup[1]"
    #精选
