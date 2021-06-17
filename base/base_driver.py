@@ -13,8 +13,10 @@ def init_driver():
         caps["newCommandTimeout"] = 5000
         #caps["noReset"] = True
         caps["androidPackage"] = "com.android.chrome"
-
+        caps["androidProcess"] = "com.tencent.mm:tools"
         caps["chromedriverExecutable"] = "/usr/local/H5_chromedriver/chromedriver"
+
+
 
         driver = webdriver.Remote("http://localhost:4723/wd/hub", caps)
         return driver
