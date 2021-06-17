@@ -25,7 +25,7 @@ class BaseAction:
             # XPAYH处理方法
             value = self.make_xpath_with_feature(value)
         # 下面这个是加显示等待
-        return WebDriverWait(self.driver, 5, 1).until(lambda x: x.find_element(by, value))
+        return WebDriverWait(self.driver, 8, 1).until(lambda x: x.find_element(by, value))
 
     # 多元素定位如：driver.find_elements_by_xpath()
     def find_elements(self, loc):

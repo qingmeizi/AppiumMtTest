@@ -1,4 +1,8 @@
+from appium import webdriver
 from selenium import webdriver
+
+
+
 
 
 def init_driver():
@@ -10,10 +14,12 @@ def init_driver():
         caps["appPackage"] = "com.maitao.mtqzy"
         caps["appActivity"] = "com.maitao.mtqzy.main.SplashActivity"
         caps["automationName"] = "UiAutomator2"
+        #caps["automationName"] = "Selendroid"
+
         caps["newCommandTimeout"] = 5000
         #caps["noReset"] = True
         caps["androidPackage"] = "com.android.chrome"
-        caps["androidProcess"] = "com.tencent.mm:tools"
+        caps["chromeOptions"] = {'androidProcess': 'com.tencent.mm:tools'} #驱动H5自动化关键之一
         caps["chromedriverExecutable"] = "/usr/local/H5_chromedriver/chromedriver"
 
 

@@ -2,6 +2,7 @@
 import os,sys
 sys.path.append(os.getcwd())
 import pytest
+from appium import webdriver
 from base.base_driver import init_driver
 from page.beforHmoePage import BeforHomePage
 from page.mainPage import MainHmoePage
@@ -47,10 +48,13 @@ class Test_Predestine:
         self.beforHmoe.click_first_know()
         #点击sencond我知道了
         self.beforHmoe.click_second_know()
+
         #点击three我知道了
         self.beforHmoe.click_three_know()
+
         #点击允许
         self.beforHmoe.click_allow_button()
+
         #点击取消
         #self.beforHmoe.click_cancel_button()
         #点击选中城市
