@@ -10,6 +10,7 @@ from page.userLoginPage import UserLoginPage
 from page.detailPage import DetailPage
 from page.orderCalendarPage import OrderCalendarPage
 from page.orderSecondPage import OrderSecondPage
+from page.paysucessPage import PaysucessPage
 from base.base_yml import open_with_file
 import time
 
@@ -31,6 +32,7 @@ class Test_Predestine:
         self.detailPage = DetailPage(self.driver)
         self.orderCalendarPage = OrderCalendarPage(self.driver)
         self.oderSecondPage = OrderSecondPage(self.driver)
+        self.paysucessPage = PaysucessPage(self.driver)
 
 
 
@@ -107,7 +109,28 @@ class Test_Predestine:
         # 输入第六个密码
         self.oderSecondPage.six_password_box_input()
 
-        #支付成功页
+        contexts = self.driver.contexts
+        print(contexts)
+
+        #切换到webview
+        self.driver.switch_to.context(contexts[1])
+
+        #获取当前的环境，看是否切换成功
+        now = self.driver.current_context()
+        print(now)
+
+        #点击订单详情按钮
+        self.paysucessPage.click_orderdetail_button()
+
+        # 切回native
+        self.driver.switch_to.context(contexts[0])
+
+        # driver.switch_to.context("NATIVE_APP") # 这样也是可以的
+
+        # 获取当前的环境，看是否切换成功
+        now = self.driver.current_context()
+        print(now)
+
         
 
     #登录

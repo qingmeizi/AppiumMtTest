@@ -14,5 +14,7 @@ def init_driver():
         #caps["noReset"] = True
         caps["androidPackage"] = "com.android.chrome"
 
+        caps["chromedriverExecutable"] = "/usr/local/H5_chromedriver/chromedriver"
+
         driver = webdriver.Remote("http://localhost:4723/wd/hub", caps)
         return driver
