@@ -7,12 +7,16 @@ class BeforHomePage(BaseAction):
     agreen_button = By.XPATH,"//*[@text='同意']"
     #我知道了按钮
     Iknow_button = By.XPATH,"//*[@text='我知道了']"
-    #首页第一个我知道了
-    first_Know = By.ID,"com.maitao.mtqzy:id/start_guide_banner_item_image"
-    #首页第二个我知道了
-    second_know = By.ID, "com.maitao.mtqzy:id/start_guide_banner_item_image"
-    #首页第三个我知道了/hierarchy/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.LinearLayout/android.widget.FrameLayout/android.widget.RelativeLayout/android.widget.RelativeLayout/androidx.viewpager.widget.ViewPager/android.view.ViewGroup/android.widget.ImageView
-    three_know = By.ID, "com.maitao.mtqzy:id/start_guide_banner_item_image"
+    #首页第一个　下一步
+    #first_Know = By.ID,"com.maitao.mtqzy:id/start_guide_banner_item_image"
+    first_Know = By.XPATH,"//androidx.viewpager.widget.ViewPager/android.view.ViewGroup/android.widget.ImageView"
+    #首页第二个下一步
+   # second_know = By.ID, "com.maitao.mtqzy:id/start_guide_banner_item_image"
+    second_know = By.XPATH, "//androidx.viewpager.widget.ViewPager/android.view.ViewGroup/android.widget.ImageView"
+    # 首页第三个  我知道了
+    #three_know = By.ID, "com.maitao.mtqzy:id/start_guide_banner_item_image"
+    three_know = By.XPATH, "//androidx.viewpager.widget.ViewPager/android.view.ViewGroup/android.widget.ImageView"
+
     #允许，选择城市
     allow_button = By.XPATH,"//*[@text='ALLOW']"
     #取消定位

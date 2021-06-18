@@ -37,17 +37,20 @@ class Test_Predestine:
 
 
 
-    #前置
+
     #@pytest.mark.skipif(True, reason="done")
     def test_prdestine_beforeHmoe(self):
         #点击同意
         self.beforHmoe.click_agreen_button()
         #点击我知道了
         self.beforHmoe.click_Iknow()
+        time.sleep(2)
         #点击first我知道了
         self.beforHmoe.click_first_know()
+        time.sleep(5)
         #点击sencond我知道了
         self.beforHmoe.click_second_know()
+        time.sleep(5)
 
         #点击three我知道了
         self.beforHmoe.click_three_know()
@@ -75,7 +78,7 @@ class Test_Predestine:
         self.userLoginPage.click_check_box()
         # 点击提交
         self.userLoginPage.click_submit()
-        #下次再说
+        # 下次再说
         self.userLoginPage.click_Next()
 
         # 点击首页
@@ -116,14 +119,14 @@ class Test_Predestine:
         contexts = self.driver.contexts
         print(contexts)
 
-        #切换到webview
+        # 切换到webview
         self.driver.switch_to.context(contexts[1])
 
-        #获取当前的环境，看是否切换成功
+        # 获取当前的环境，看是否切换成功
         now = self.driver.current_context()
         print(now)
 
-        #点击订单详情按钮
+        # 点击订单详情按钮
         self.paysucessPage.click_orderdetail_button()
 
         # 切回native
@@ -135,11 +138,12 @@ class Test_Predestine:
         now = self.driver.current_context()
         print(now)
 
-        
+    def teardown(self):
+        self.driver.quit()
 
-    #登录
-   # @pytest.mark.parametrize("content",find_with_data("userLogin"))
- #   def test_prdestine_login(self,content):
+    # 登录
+    # @pytest.mark.parametrize("content",find_with_data("userLogin"))
+    #   def test_prdestine_login(self,content):
     def test_prdestine_login(self):
         # 点击我的
         self.mainpage.click_my_tab()
@@ -158,17 +162,17 @@ class Test_Predestine:
 
     #首页
     def test_prdestine_main(self):
-        #点击首页
+        # 点击首页
         self.userHomePage.click_homePage_tab()
-        #点击精选
+        # 点击精选
         self.mainpage.click_fine_select()
-        #点击产品
+        # 点击产品
         self.mainpage.click_product_name()
 
 
-    #购买下单
+    # 购买下单
     def test_prdestine_order(self):
-        #点击立即购买
+        # 点击立即购买
         self.detailPage.click_immediately_buy()
         #选择套餐
         self.orderCalendarPage.click_set_meal()
@@ -185,15 +189,15 @@ class Test_Predestine:
 
     @pytest.mark.parametrize("content",find_with_data("input_password"))
     def test_input_password(self,content):
-        #输入第一个支付密码
+        # 输入第一个支付密码
         self.oderSecondPage.one_password_box_input1(content[0])
-        #输入第二个支付米啊吗
+        # 输入第二个支付米啊吗
         self.oderSecondPage.two_password_box_input1(content[1])
-        #输入第三个支付密码
+        # 输入第三个支付密码
         self.oderSecondPage.three_password_box_input1(content[2])
-        #输入第四个支付密码
+        # 输入第四个支付密码
         self.oderSecondPage.foure_password_box_input1(content[3])
-        #输入第五个密码
+        # 输入第五个密码
         self.oderSecondPage.five_password_box_input1(content[4])
-        #输入第六个密码
+        # 输入第六个密码
         self.oderSecondPage.six_password_box_input1(content[5])

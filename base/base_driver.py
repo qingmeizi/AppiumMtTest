@@ -1,9 +1,6 @@
 from appium import webdriver
-from selenium import webdriver
-
-
-
-
+#from selenium import webdriver
+import time
 
 def init_driver():
         caps = {}
@@ -22,7 +19,6 @@ def init_driver():
         caps["chromeOptions"] = {'androidProcess': 'com.tencent.mm:tools'} #驱动H5自动化关键之一
         caps["chromedriverExecutable"] = "/usr/local/H5_chromedriver/chromedriver"
 
-
-
         driver = webdriver.Remote("http://localhost:4723/wd/hub", caps)
         return driver
+

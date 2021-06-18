@@ -2,7 +2,7 @@ from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.common.by import By
 class BaseAction:
 
-    def __init__(self,driver):
+    def __init__(self, driver):
         self.driver = driver
 
     #封装点击操作
@@ -25,7 +25,7 @@ class BaseAction:
             # XPAYH处理方法
             value = self.make_xpath_with_feature(value)
         # 下面这个是加显示等待
-        return WebDriverWait(self.driver, 8, 1).until(lambda x: x.find_element(by, value))
+        return WebDriverWait(self.driver, 5, 1).until(lambda x: x.find_element(by, value))
 
     # 多元素定位如：driver.find_elements_by_xpath()
     def find_elements(self, loc):
@@ -34,7 +34,7 @@ class BaseAction:
         if by == By.XPATH:
             value = self.make_xpath_with_feature(value)
         # 下面这个是加显示等待
-        return WebDriverWait(self.driver, 5, 1).until(lambda x: x.find_elements(by, value))
+        return WebDriverWait(self.driver, 8, 1).until(lambda x: x.find_elements(by, value))
 
     # 以下是PXATH工具类简化
     def make_xpath_with_unit_feature(self, loc):
