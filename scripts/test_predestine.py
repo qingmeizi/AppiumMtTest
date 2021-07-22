@@ -12,14 +12,14 @@ from page.detailPage import DetailPage
 from page.orderCalendarPage import OrderCalendarPage
 from page.orderSecondPage import OrderSecondPage
 from page.paysucessPage import PaysucessPage
-from base.base_yml import open_with_file
 import time
+from base.base_yml import yaml_data_with_file
 
 from base.base_yml import open_with_file
 
-#数据驱动
-def find_with_data(key):
-    return open_with_file("data")[key]
+
+def data_with_key(key):
+    return yaml_data_with_file("data",key)
 
 
 #进入设置操作
@@ -187,7 +187,7 @@ class Test_Predestine:
         #点击提交订单
         self.oderSecondPage.click_ordersecond_confirm()
 
-    @pytest.mark.parametrize("content",find_with_data("input_password"))
+    @pytest.mark.parametrize("content",data_with_key("input_password"))
     def test_input_password(self,content):
         # 输入第一个支付密码
         self.oderSecondPage.one_password_box_input1(content[0])
