@@ -34,7 +34,7 @@ class BaseAction:
         if by == By.XPATH:
             value = self.make_xpath_with_feature(value)
         # 下面这个是加显示等待
-        return WebDriverWait(self.driver, 8, 1).until(lambda x: x.find_elements(by, value))
+        return WebDriverWait(self.driver, 5, 1).until(lambda x: x.find_elements(by, value))
 
     # 以下是PXATH工具类简化
     def make_xpath_with_unit_feature(self, loc):
