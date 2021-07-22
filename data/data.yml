@@ -1,5 +1,13 @@
 input_password:
   input_password001:
+
+
+
+test_prdestine_msg:
+  test_prdestine_msg001:
+    "mobile": "12312340008"
+    "password": "871117"
+    "product_name": "11月6日|《海贼王-ルフィ猛攻!》杭州剧院100元起超燃二次元交响电声音乐会！"
     "one_password": "5"
     "two_password": "5"
     "three_password": "5"
@@ -7,11 +15,5 @@ input_password:
     "five_password": "5"
     "six_password": "5"
 
-    input_password002:
-      "one_password": "1"
-      "two_password": "5"
-      "three_password": "5"
-      "foure_password": "5"
-      "five_password": "5"
-      "six_password": "5"
+
 

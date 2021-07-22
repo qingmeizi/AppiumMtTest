@@ -38,8 +38,8 @@ class Test_Predestine:
 
 
 
-    #@pytest.mark.skipif(True, reason="done")
-    def test_prdestine_beforeHmoe(self):
+    @pytest.mark.parametrize("content",data_with_key("test_prdestine_msg"))
+    def test_prdestine_msg(self,content):
         #点击同意
         self.beforHmoe.click_agreen_button()
         #点击我知道了
@@ -47,16 +47,18 @@ class Test_Predestine:
         time.sleep(2)
         #点击first我知道了
         self.beforHmoe.click_first_know()
-        time.sleep(5)
         #点击sencond我知道了
         self.beforHmoe.click_second_know()
-        time.sleep(5)
-
         #点击three我知道了
         self.beforHmoe.click_three_know()
+        time.sleep(3)
 
+        #仅使用期间允许
+        self.beforHmoe.click_allow_during()
+
+        time.sleep(3)
         #点击允许
-        self.beforHmoe.click_allow_button()
+        #self.beforHmoe.click_allow_button()
 
         #点击取消
         #self.beforHmoe.click_cancel_button()
@@ -64,32 +66,46 @@ class Test_Predestine:
         self.beforHmoe.click_select_city()
         time.sleep(3)
 
+        #发现新版本，取消
+        self.mainpage.click_after_say()
+        time.sleep(2)
         # 点击我的
         self.mainpage.click_my_tab()
         # 点击登录/注册
         self.userHomePage.click_login_registered()
         # 点击手机登录
         self.userLoginPage.click_mobile_login()
+        time.sleep(2)
         # 输入手机号
-        self.userLoginPage.mobile_input()
+        self.userLoginPage.mobile_input(content["mobile"])
         # 输入验证码
-        self.userLoginPage.password_input()
+        self.userLoginPage.password_input(content["password"])
         # 勾选
         self.userLoginPage.click_check_box()
         # 点击提交
         self.userLoginPage.click_submit()
+        time.sleep(1)
+
         # 下次再说
         self.userLoginPage.click_Next()
 
         # 点击首页
         self.userHomePage.click_homePage_tab()
+        time.sleep(1)
+        # 发现新版本，取消
+        self.mainpage.click_after_say()
+        time.sleep(2)
+
         # 点击精选
         self.mainpage.click_fine_select()
+
         # 点击产品
         self.mainpage.click_product_name()
+        time.sleep(2)
 
         # 点击立即购买
         self.detailPage.click_immediately_buy()
+        time.sleep(1)
         # 选择套餐
         self.orderCalendarPage.click_set_meal()
         # 选择日期
@@ -100,30 +116,36 @@ class Test_Predestine:
         self.orderCalendarPage.click_travel_number()
         # 点击确定
         self.orderCalendarPage.click_determine_button()
+        time.sleep(2)
         # 点击提交订单
         self.oderSecondPage.click_ordersecond_confirm()
 
+
+
         # 输入第一个支付密码
-        self.oderSecondPage.one_password_box_input()
+        self.oderSecondPage.one_password_box_input1(content["one_password"])
         # 输入第二个支付米啊吗
-        self.oderSecondPage.two_password_box_input()
+        self.oderSecondPage.two_password_box_input1(content["two_password"])
         # 输入第三个支付密码
-        self.oderSecondPage.three_password_box_input()
+        self.oderSecondPage.three_password_box_input1(content["three_password"])
         # 输入第四个支付密码
-        self.oderSecondPage.foure_password_box_input()
+        self.oderSecondPage.foure_password_box_input1(content["foure_password"])
         # 输入第五个密码
-        self.oderSecondPage.five_password_box_input()
+        self.oderSecondPage.five_password_box_input1(content["five_password"])
         # 输入第六个密码
-        self.oderSecondPage.six_password_box_input()
+        self.oderSecondPage.six_password_box_input1(content["six_password"])
+
 
         contexts = self.driver.contexts
-        print(contexts)
 
+        print(contexts)
+        #['NATIVE_APP', 'WEBVIEW_com.maitao.mtqzy', 'WEBVIEW_stetho_com.maitao.mtqzy']
+        time.sleep(1)
         # 切换到webview
         self.driver.switch_to.context(contexts[1])
 
         # 获取当前的环境，看是否切换成功
-        now = self.driver.current_context()
+        now = self.driver.current_context
         print(now)
 
         # 点击订单详情按钮
@@ -141,63 +163,3 @@ class Test_Predestine:
     def teardown(self):
         self.driver.quit()
 
-    # 登录
-    # @pytest.mark.parametrize("content",find_with_data("userLogin"))
-    #   def test_prdestine_login(self,content):
-    def test_prdestine_login(self):
-        # 点击我的
-        self.mainpage.click_my_tab()
-        # 点击登录/注册
-        self.userHomePage.click_login_registered()
-        # 点击手机登录
-        self.userLoginPage.click_mobile_login()
-        # 输入手机号
-        self.userLoginPage.mobile_input()
-        # 输入验证码
-        self.userLoginPage.password_input()
-        # 勾选
-        self.userLoginPage.click_check_box()
-        # 点击提交
-        self.userLoginPage.click_submit()
-
-    #首页
-    def test_prdestine_main(self):
-        # 点击首页
-        self.userHomePage.click_homePage_tab()
-        # 点击精选
-        self.mainpage.click_fine_select()
-        # 点击产品
-        self.mainpage.click_product_name()
-
-
-    # 购买下单
-    def test_prdestine_order(self):
-        # 点击立即购买
-        self.detailPage.click_immediately_buy()
-        #选择套餐
-        self.orderCalendarPage.click_set_meal()
-        #选择日期
-        self.orderCalendarPage.click_select_data()
-        #选择场次
-        self.orderCalendarPage.click_selech_session()
-        #选择出行人数
-        self.orderCalendarPage.click_travel_number()
-        #点击确定
-        self.orderCalendarPage.click_determine_button()
-        #点击提交订单
-        self.oderSecondPage.click_ordersecond_confirm()
-
-    @pytest.mark.parametrize("content",data_with_key("input_password"))
-    def test_input_password(self,content):
-        # 输入第一个支付密码
-        self.oderSecondPage.one_password_box_input1(content[0])
-        # 输入第二个支付米啊吗
-        self.oderSecondPage.two_password_box_input1(content[1])
-        # 输入第三个支付密码
-        self.oderSecondPage.three_password_box_input1(content[2])
-        # 输入第四个支付密码
-        self.oderSecondPage.foure_password_box_input1(content[3])
-        # 输入第五个密码
-        self.oderSecondPage.five_password_box_input1(content[4])
-        # 输入第六个密码
-        self.oderSecondPage.six_password_box_input1(content[5])

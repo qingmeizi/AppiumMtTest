@@ -14,7 +14,12 @@ class MainHmoePage(BaseAction):
     fine_select= By.XPATH,"//*[@text='精选']"
 
     #产品名称---预定的产品配置在首页的精选
-    product_name = By.XPATH,"//*[@text='ceshiyuding']"
+    product_location = By.XPATH,"//*[@text='11月6日|《海贼王-ルフィ猛攻!》杭州剧院100元起超燃二次元交响电声音乐会！']"
+
+    #测试产品83184
+
+    #提示版本升级的弹窗，
+    Afrer_say = By.XPATH, "//*[@text='以后再说']"
 
     def __int__(self, driver):
         self.driver = driver
@@ -34,4 +39,7 @@ class MainHmoePage(BaseAction):
 
     #选中配置的产品
     def click_product_name(self):
-        self.click(self.product_name)
+        self.click(self.product_location)
+
+    def click_after_say(self):
+        self.click(self.Afrer_say)

@@ -8,12 +8,14 @@ from base.BaseAction import BaseAction
 class OrderCalendarPage(BaseAction):
 
    #选择套餐
-    set_meal = By.XPATH, "//android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[1]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[1]/android.widget.TextView"
+    set_meal = By.XPATH, "//*[@text='测试套餐']"
    #选择日期
-    select_data = By.XPATH,"//android.view.ViewGroup/android.view.ViewGroup[2]/androidx.viewpager.widget.ViewPager/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[23]/android.view.ViewGroup/android.widget.TextView[1]"
+    select_data = By.XPATH,"//android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.view.ViewGroup[2]/androidx.viewpager.widget.ViewPager/android.view.ViewGroup/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup[31]/android.view.ViewGroup"
    #选择场次
     select_session = By.XPATH,"//android.view.ViewGroup/android.view.ViewGroup[2]/androidx.recyclerview.widget.RecyclerView/android.view.ViewGroup"
    #设置出行人数+1
+
+
     travel_number = By.XPATH,"//android.widget.FrameLayout/android.view.ViewGroup/android.widget.ScrollView/android.view.ViewGroup/android.widget.LinearLayout/android.widget.LinearLayout/android.view.ViewGroup/android.widget.ImageView[2]"
    #点击确定
     determine_button = By.XPATH,"//*[@text='确定']"

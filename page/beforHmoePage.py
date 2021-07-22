@@ -16,9 +16,14 @@ class BeforHomePage(BaseAction):
     # 首页第三个  我知道了
     #three_know = By.ID, "com.maitao.mtqzy:id/start_guide_banner_item_image"
     three_know = By.XPATH, "//androidx.viewpager.widget.ViewPager/android.view.ViewGroup/android.widget.ImageView"
+    #仅使用期间允许
+    click_during = By.XPATH, "//*[@text = '仅使用期间允许']"
+
+
+
 
     #允许，选择城市
-    allow_button = By.XPATH,"//*[@text='ALLOW']"
+    allow_button = By.XPATH,"//*[@text='仅使用期间允许']"
     #取消定位
     cancel_button = By.XPATH,"//*[@text='取消']"
     #选中城市
@@ -42,6 +47,10 @@ class BeforHomePage(BaseAction):
     #点击第三个我知道
     def click_three_know(self):
         self.click(self.three_know)
+
+    #仅使用期间允许
+    def click_allow_during(self):
+        self.click(self.click_during)
 
     #允许
     def click_allow_button(self):
