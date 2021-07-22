@@ -7,7 +7,7 @@ def init_driver():
         caps["platformName"] = "Android"
         caps["AUTOMATION_NAME"] = "Appium"
         # caps["platformVersion"] = "9.0.0"
-        caps["deviceName"] = "192.168.56.107:5555"
+        caps["deviceName"] = "SNHVB20611009683"
         caps["appPackage"] = "com.maitao.mtqzy"
         caps["appActivity"] = "com.maitao.mtqzy.main.SplashActivity"
         caps["automationName"] = "UiAutomator2"
