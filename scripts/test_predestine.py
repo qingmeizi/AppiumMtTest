@@ -144,9 +144,13 @@ class Test_Predestine:
         # 切换到webview
         self.driver.switch_to.context(contexts[1])
 
+
+        time.sleep(7)
+
         # 获取当前的环境，看是否切换成功
         now = self.driver.current_context
         print(now)
+        os.system('pkill -9 chromedriver')
 
         # 点击订单详情按钮
         self.paysucessPage.click_orderdetail_button()
