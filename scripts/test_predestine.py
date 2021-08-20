@@ -14,6 +14,7 @@ from page.orderSecondPage import OrderSecondPage
 from page.paysucessPage import PaysucessPage
 import time
 from base.base_yml import yaml_data_with_file
+import allure
 
 from base.base_yml import open_with_file
 
@@ -23,6 +24,8 @@ def data_with_key(key):
 
 
 #进入设置操作
+
+@allure.feature("这是预定测试用例")
 class Test_Predestine:
     def setup(self):
         self.driver = init_driver()
@@ -36,8 +39,7 @@ class Test_Predestine:
         self.paysucessPage = PaysucessPage(self.driver)
 
 
-
-
+    @allure.story("test")
     @pytest.mark.parametrize("content",data_with_key("test_prdestine_msg"))
     def test_prdestine_msg(self,content):
         #点击同意
@@ -67,8 +69,8 @@ class Test_Predestine:
         time.sleep(3)
 
         #发现新版本，取消
-        self.mainpage.click_after_say()
-        time.sleep(2)
+       # self.mainpage.click_after_say()
+        #time.sleep(2)
         # 点击我的
         self.mainpage.click_my_tab()
         # 点击登录/注册
@@ -93,8 +95,8 @@ class Test_Predestine:
         self.userHomePage.click_homePage_tab()
         time.sleep(1)
         # 发现新版本，取消
-        self.mainpage.click_after_say()
-        time.sleep(2)
+       # self.mainpage.click_after_say()
+        #time.sleep(2)
 
         # 点击精选
         self.mainpage.click_fine_select()
@@ -137,25 +139,28 @@ class Test_Predestine:
 
 
         contexts = self.driver.contexts
-
         print(contexts)
         #['NATIVE_APP', 'WEBVIEW_com.maitao.mtqzy', 'WEBVIEW_stetho_com.maitao.mtqzy']
-        time.sleep(1)
+        time.sleep(10)
         # 切换到webview
         self.driver.switch_to.context(contexts[1])
-
-
-        time.sleep(7)
-
         # 获取当前的环境，看是否切换成功
         now = self.driver.current_context
-        print(now)
-        os.system('pkill -9 chromedriver')
+        print("webview:"+now)
+        source = self.driver.page_source
+        print("source:"+ source)
+        #切换一个native
+        self.driver.switch_to.context(contexts[0])
+        time.sleep(3)
+        #切换到webview
+        self.driver.switch_to.context(contexts[1])
+        #os.system('pkill -9 chromedriver')
+        time.sleep(7)
 
-        # 点击订单详情按钮
+        # # 点击订单详情按钮
         self.paysucessPage.click_orderdetail_button()
 
-        # 切回native
+        # # 切回native
         self.driver.switch_to.context(contexts[0])
 
         # driver.switch_to.context("NATIVE_APP") # 这样也是可以的

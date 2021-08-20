@@ -1,0 +1,22 @@
+{
+  "uid" : "83edc06c07f9ae9e47eb6dd1b683e4e2",
+  "children" : [ {
+    "name" : "scripts.test_predestine",
+    "children" : [ {
+      "name" : "test_prdestine_msg[content0]",
+      "uid" : "fa38e5c03af95787",
+      "parentUid" : "fb6b5c554dd95fc1c9910e85119fff94",
+      "status" : "broken",
+      "time" : {
+        "start" : 1629448672705,
+        "stop" : 1629448721264,
+        "duration" : 48559
+      },
+      "flaky" : false,
+      "newFailed" : false,
+      "parameters" : [ "{'mobile': '12312340008', 'password': '871117', 'product_name': '11月6日|《海贼王-ルフィ猛攻!》杭州剧院100元起超燃二次元交响电声音乐会！', 'one_password': '5', 'two_password': '5', 'three_password': '5', 'foure_password': '5', 'five_password': '5', 'six_password': '5'}" ]
+    } ],
+    "uid" : "scripts.test_predestine"
+  } ],
+  "name" : "packages"
+}

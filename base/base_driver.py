@@ -19,7 +19,9 @@ def init_driver():
         caps["chromeOptions"] = {'androidProcess': 'com.maitao.mtqzy'} #驱动H5自动化关键之一
         #caps["chromeOptions"] = {'androidProcess': 'WEBVIEW_stetho_com.maitao.mtqzy'}
 
-        caps["chromedriverExecutable"] = "/usr/local/H5_chromedriver/chromedriver"
+        caps["chromedriverExecutable"] = "/Applications/Appium.app/Contents/Resources/app/node_modules/appium/node_modules/appium-chromedriver/chromedriver/mac/chromedriver"
+        caps['recreateChromeDriverSessions'] = True
+
 
         driver = webdriver.Remote("http://localhost:4723/wd/hub", caps)
         return driver

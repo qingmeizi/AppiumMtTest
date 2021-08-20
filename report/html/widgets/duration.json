@@ -1,0 +1,11 @@
+[ {
+  "uid" : "fa38e5c03af95787",
+  "name" : "test_prdestine_msg[content0]",
+  "time" : {
+    "start" : 1629448672705,
+    "stop" : 1629448721264,
+    "duration" : 48559
+  },
+  "status" : "broken",
+  "severity" : "normal"
+} ]

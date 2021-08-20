@@ -12,6 +12,11 @@ class BaseAction:
     #封装输入操作
     def input(self,loc,text):
         self.find_element(loc).send_keys(text)
+    """
+    def inputPwd(self,loc,text):
+        self.find_element(loc).set_value(text)
+        self.find_element(loc).perform()
+    """
 
 
     #封装元素findelement
